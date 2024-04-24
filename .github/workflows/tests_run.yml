@@ -1,0 +1,33 @@
+name: Automation test
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: Choose target
+        required: true
+        dafault:
+        type: choice
+        options:
+          - first_test
+          - second_test
+  jobs:
+    test:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Chockout repository
+          uses: actions/checout@v4
+        - name: setup Python
+          uses: actions/setup-python@v5
+          with:
+            python-version: "3.10"
+        - name: Install Chrome
+          run: sudo apt-get install google-chrome-stable
+        - name: install dependencies
+          run: pip install -r requirements.txt
+        - name: first_test
+          run: pytest tests/test_authorization.py::test_authorization
+        - name: second_test
+          run: pytest tests/test_authorization.py::test_registration
+
