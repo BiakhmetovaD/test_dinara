@@ -18,7 +18,7 @@ on:
 
       steps:
         - name: Checkout repository
-          uses: actions/checout@v4
+          uses: actions/checkout@v4
         - name: setup Python
           uses: actions/setup-python@v5
           with:
