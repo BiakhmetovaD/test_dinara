@@ -11,6 +11,7 @@ on:
         options:
           - first_test
           - second_test
+          -
   jobs:
     test:
       runs-on: ubuntu-latest
