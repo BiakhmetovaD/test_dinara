@@ -33,7 +33,7 @@ jobs:
         if: "github.event.inputs.deployment_target == 'second_test'"
         run: pytest tests/test_authorization.py::test_button_check
       - name: second_test
-        if: "github.event.inputs.deployment_target == 'first_test"
+        if: "github.event.inputs.deployment_target == 'second_test"
         run: pytest tests/test_authorization.py::test_authorizationError
 
 
